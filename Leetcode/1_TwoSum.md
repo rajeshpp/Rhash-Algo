@@ -35,3 +35,29 @@ class Solution:
                     return [i, j]
 ```
 <b>Time Complexity:</b> O(n^2)
+
+<b>Solution 2:</b></br>
+![Solution 2](./images/Solution%202.gif)
+</br>
+```
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hash_vals = {}
+        for index, num in enumerate(nums):
+            if num in hash_vals:
+                hash_vals[num].append(index)
+            else:
+                hash_vals[num] = [index]
+        for index, num in enumerate(nums):
+            second = target - num
+            if second in hash_vals:
+                that_val = hash_vals[second]
+                if second == num:
+                    if len(that_val) > 1:
+                        return that_val
+                    else:
+                        continue
+                else:
+                    return [index, that_val[0]]
+```
+<b>Time Complexity:</b> O(n)
