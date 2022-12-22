@@ -39,3 +39,5 @@ class TestClassInstanceIsolation:
         assert self.value == 5
 ```
 <img width="854" alt="image" src="https://user-images.githubusercontent.com/19406666/209102269-eba94986-b85e-469e-b31c-4e6d87024d5f.png">
+
+Note that attributes added at class level are class attributes, so they will be shared between tests.
