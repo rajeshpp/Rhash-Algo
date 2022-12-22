@@ -27,7 +27,7 @@ Grouping test cases in classes can be beneficial for the following reasons:
 Though, you group multiple test cases within the same class, each test has a unique instance of the class.
 
 ```
-# content of 4_class_isolation.py
+# content of 4_class_isolation_test.py
 class TestClassInstanceIsolation:
     value = 0
 
@@ -38,6 +38,7 @@ class TestClassInstanceIsolation:
     def test_method_two(self):
         assert self.value == 5
 ```
-<img width="854" alt="image" src="https://user-images.githubusercontent.com/19406666/209102269-eba94986-b85e-469e-b31c-4e6d87024d5f.png">
+<img width="907" alt="image" src="https://user-images.githubusercontent.com/19406666/209102665-e0ad761c-2717-477d-8368-b3c895053da5.png">
+
 
 Note that attributes added at class level are class attributes, so they will be shared between tests.
