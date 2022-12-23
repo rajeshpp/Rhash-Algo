@@ -3,6 +3,36 @@ The `pytest` framework makes it easy to write small, readable tests, and can sca
 
 `pytest` will run all files of the form `test_*.py` or `*_test.py` in the current directory and its subdirectories. 
 
+### Different ways of using pytest
+#### Run tests in a module
+`pytest test_mod.py`
+
+#### Run tests in a directory
+`pytest testing/`
+
+#### Run tests by keyword expressions
+`pytest -k "MyClass and not method"`
+
+This will run tests which contain names that match the given string expression (case-insensitive), which can include Python operators that use filenames, class names and function names as variables. 
+
+The example above will run TestMyClass.test_something but not TestMyClass.test_method_simple.
+
+#### Run tests by node ids
+`pytest test_mod.py::test_func`
+
+Another example specifying a test method in the command line:
+
+`pytest test_mod.py::TestClass::test_method`
+
+#### Run tests by marker expressions
+`pytest -m slow`
+Will run all tests which are decorated with the @pytest.mark.slow decorator.
+
+#### Run tests from packages
+`pytest --pyargs pkg.testing`
+
+This will import pkg.testing and use its filesystem location to find and run tests from.
+
 ### A very basic example:
 ```
 # content of 1_sample_test.py
